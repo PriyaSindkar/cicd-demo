@@ -104,3 +104,17 @@ workflows:
           filters:
             branches:
               only: main # Commits to main branch
+
+          executor:
+            name: android/android-machine
+            resource-class: xlarge
+            steps:
+              - checkout
+              - android/restore-gradle-cache
+              - android/restore-build-cache
+              - run:
+                  name: Assemble release build
+                  command: |
+                    ./gradlew assembleRelease
+              - store_artifacts:
+                  path: app/build/outputs/apk/release
