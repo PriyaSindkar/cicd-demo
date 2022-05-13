@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             btnSum.setOnClickListener {
                 if (firstNumber.validate() && secondNumber.validate()) {
-                    btnSum.text = (firstNumber.getNumber().plus(secondNumber.getNumber())).toString()
+//                    btnSum.text = (firstNumber.getNumber().plus(secondNumber.getNumber())).toString()
+                    btnSum.text = (firstNumber.getNumber() + (secondNumber.getNumber())).toString()
                 }
             }
         }
